@@ -1,0 +1,25 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: worker
+  extraMounts:
+    - hostPath: ./logs
+      containerPath: /shared/logs
+- role: control-plane
+  image: kindest/node:v1.27.1
+  extraMounts:
+  - hostPath: /media/giovanni/ssdsata/log
+    containerPath: /shared/logs
+  extraPortMappings:
+  - containerPort: 31080
+    hostPort: 80
+  - containerPort: 31443
+    hostPort: 443
+  - containerPort: 34120
+    hostPort: 4120
+  - containerPort: 34121
+    hostPort: 4121
+containerdConfigPatches:
+  - |-
+    [plugins."io.containerd.grpc.v1.cri".registry]
+      config_path = "/etc/containerd/certs.d"
