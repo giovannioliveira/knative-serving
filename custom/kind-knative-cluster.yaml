@@ -1,10 +1,6 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
-- role: worker
-  extraMounts:
-    - hostPath: /home/shared
-      containerPath: /home/shared
 - role: control-plane
   image: kindest/node:v1.27.1
   extraMounts:
