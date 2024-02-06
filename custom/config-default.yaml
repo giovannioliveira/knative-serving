@@ -1,0 +1,19 @@
+apiVersion:  v1
+kind:  ConfigMap
+metadata:
+  name:  config-defaults
+  namespace:  knative-serving
+data:
+  revision-timeout-seconds: "1200"
+  max-revision-timeout-seconds: "1200"
+  revision-cpu-request: "500m"
+  revision-memory-request: "100M"
+  revision-ephemeral-storage-request: "100M"
+  revision-cpu-limit: "500m"
+  revision-memory-limit: "100M"
+  revision-ephemeral-storage-limit: "200M"
+  container-name-template: "user-container"
+  container-concurrency: "3"
+  container-concurrency-max-limit: "5"
+  allow-container-concurrency-zero: "false"
+  enable-service-links: "false"
