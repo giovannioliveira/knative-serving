@@ -1,0 +1,8 @@
+specVersion: 0.35.0
+name: simtask
+runtime: go
+registry: docker.io/giovanniapsoliveira/simtask
+image: docker.io/giovanniapsoliveira/simtask/simtask:latest
+created: 2024-02-23T22:45:44.961926313-03:00
+build:
+  builder: pack
