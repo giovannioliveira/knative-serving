@@ -6,11 +6,10 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
-	"strings"
 	"time"
 )
 
-const Version = "0.1.0"
+const Version = "0.1.0b"
 
 func Handle(ctx context.Context, resp http.ResponseWriter, req *http.Request) {
 	rt0 := time.Now()
@@ -53,25 +52,22 @@ func Handle(ctx context.Context, resp http.ResponseWriter, req *http.Request) {
 	rtf := time.Now()
 	rdt := rtf.Sub(rt0)
 
-	res := map[string]any{}
-	res["rt0"] = rt0.UnixNano()
-	res["rtb"] = rtb.Nanoseconds()
-	res["rts"] = rts.Nanoseconds()
-	res["rdt"] = rdt.Nanoseconds()
-	res["rtf"] = rtf.UnixNano()
+	res := map[string]string{}
+	res["rt0"] = strconv.FormatInt(rt0.UnixNano(), 10)
+	res["rtb"] = strconv.FormatInt(rtb.Nanoseconds(), 10)
+	res["rit"] = strconv.FormatUint(rit, 10)
+	res["rts"] = strconv.FormatInt(rts.Nanoseconds(), 10)
+	res["rdt"] = strconv.FormatInt(rdt.Nanoseconds(), 10)
+	res["rtf"] = strconv.FormatInt(rtf.UnixNano(), 10)
+	// TODO compute delays in response
 
 	r, err := json.Marshal(res)
 	if err != nil {
-		resp.WriteHeader(500)
-		_, err := resp.Write([]byte(err.Error()))
-		if err != nil {
-			http.Error(resp, err.Error(), 500)
-			return
-		}
+		http.Error(resp, err.Error(), 500)
+		return
 	}
-	resp.Header().Add("Content-Type", "application/json")
+	resp.Header().Add("Content-Type", "plain/text")
 	resp.Header().Add("X-Request-ID", params.Get("id"))
-	resp.Header().Add("X-Request-Function", strings.Split(req.Host, ".")[0])
 	resp.Header().Add("Version", Version)
 	resp.WriteHeader(200)
 	_, err = fmt.Fprintf(resp, string(r))
