@@ -1,5 +1,5 @@
-kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
 nodes:
 - role: control-plane
   image: kindest/node:v1.27.1
@@ -15,7 +15,3 @@ nodes:
     hostPort: 4120
   - containerPort: 34121
     hostPort: 4121
-containerdConfigPatches:
-  - |-
-    [plugins."io.containerd.grpc.v1.cri".registry]
-      config_path = "/etc/containerd/certs.d"

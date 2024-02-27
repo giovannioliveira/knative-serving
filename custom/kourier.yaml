@@ -171,70 +171,71 @@ metadata:
     app.kubernetes.io/version: "1.11.3"
     app.kubernetes.io/name: knative-serving
 data:
-  _example: |
-    ################################
-    #                              #
-    #    EXAMPLE CONFIGURATION     #
-    #                              #
-    ################################
-
-    # This block is not actually functional configuration,
-    # but serves to illustrate the available configuration
-    # options and document them in a way that is accessible
-    # to users that `kubectl edit` this config map.
-    #
-    # These sample configuration options may be copied out of
-    # this example block and unindented to be in the data block
-    # to actually change the configuration.
-
-    # Specifies whether requests reaching the Kourier gateway
-    # in the context of services should be logged. Readiness
-    # probes etc. must be configured via the bootstrap config.
-    enable-service-access-logging: "true"
-
-    # Specifies whether to use proxy-protocol in order to safely
-    # transport connection information such as a client's address
-    # across multiple layers of TCP proxies.
-    # NOTE THAT THIS IS AN EXPERIMENTAL / ALPHA FEATURE
-    enable-proxy-protocol: "false"
-
-    # The server certificates to serve the internal TLS traffic for Kourier Gateway.
-    # It is specified by the secret name in controller namespace, which has
-    # the "tls.crt" and "tls.key" data field.
-    # Use an empty value to disable the feature (default).
-    #
-    # NOTE: This flag is in an alpha state and is mostly here to enable internal testing
-    #       for now. Use with caution.
-    cluster-cert-secret: ""
-
-    # Specifies the amount of time that Kourier waits for the incoming requests.
-    # The default, 0s, imposes no timeout at all.
-    stream-idle-timeout: "0s"
-
-    # Control the desired level of incoming traffic isolation.
-    #
-    # When set to an empty value (default), all incoming traffic flows through
-    # a shared ingress and listeners.
-    #
-    # When set to "port", incoming traffic is isolated by using different
-    # listener ports.
-    #
-    # NOTE: This flag is in an alpha state.
-    traffic-isolation: ""
-
-    # Specifies whether to use CryptoMB private key provider in order to
-    # acclerate the TLS handshake.
-    # NOTE THAT THIS IS AN EXPERIMENTAL / ALPHA FEATURE.
-    enable-cryptomb: "false"
-
-    # Configures the number of additional ingress proxy hops from the
-    # right side of the x-forwarded-for HTTP header to trust.
-    trusted-hops-count: "0"
-
-    # Specifies the cipher suites for TLS external listener.
-    # Use ',' separated values like "ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-ECDSA-CHACHA20-POLY1305"
-    # The default uses the default cipher suites of the envoy version.
-    cipher-suites: ""
+  knative.dev: ""
+#  _example: |
+#    ################################
+#    #                              #
+#    #    EXAMPLE CONFIGURATION     #
+#    #                              #
+#    ################################
+#
+#    # This block is not actually functional configuration,
+#    # but serves to illustrate the available configuration
+#    # options and document them in a way that is accessible
+#    # to users that `kubectl edit` this config map.
+#    #
+#    # These sample configuration options may be copied out of
+#    # this example block and unindented to be in the data block
+#    # to actually change the configuration.
+#
+#    # Specifies whether requests reaching the Kourier gateway
+#    # in the context of services should be logged. Readiness
+#    # probes etc. must be configured via the bootstrap config.
+#    enable-service-access-logging: "true"
+#
+#    # Specifies whether to use proxy-protocol in order to safely
+#    # transport connection information such as a client's address
+#    # across multiple layers of TCP proxies.
+#    # NOTE THAT THIS IS AN EXPERIMENTAL / ALPHA FEATURE
+#    enable-proxy-protocol: "false"
+#
+#    # The server certificates to serve the internal TLS traffic for Kourier Gateway.
+#    # It is specified by the secret name in controller namespace, which has
+#    # the "tls.crt" and "tls.key" data field.
+#    # Use an empty value to disable the feature (default).
+#    #
+#    # NOTE: This flag is in an alpha state and is mostly here to enable internal testing
+#    #       for now. Use with caution.
+#    cluster-cert-secret: ""
+#
+#    # Specifies the amount of time that Kourier waits for the incoming requests.
+#    # The default, 0s, imposes no timeout at all.
+#    stream-idle-timeout: "0s"
+#
+#    # Control the desired level of incoming traffic isolation.
+#    #
+#    # When set to an empty value (default), all incoming traffic flows through
+#    # a shared ingress and listeners.
+#    #
+#    # When set to "port", incoming traffic is isolated by using different
+#    # listener ports.
+#    #
+#    # NOTE: This flag is in an alpha state.
+#    traffic-isolation: ""
+#
+#    # Specifies whether to use CryptoMB private key provider in order to
+#    # acclerate the TLS handshake.
+#    # NOTE THAT THIS IS AN EXPERIMENTAL / ALPHA FEATURE.
+#    enable-cryptomb: "false"
+#
+#    # Configures the number of additional ingress proxy hops from the
+#    # right side of the x-forwarded-for HTTP header to trust.
+#    trusted-hops-count: "0"
+#
+#    # Specifies the cipher suites for TLS external listener.
+#    # Use ',' separated values like "ECDHE-ECDSA-AES128-GCM-SHA256,ECDHE-ECDSA-CHACHA20-POLY1305"
+#    # The default uses the default cipher suites of the envoy version.
+#    cipher-suites: ""
 
 ---
 # Copyright 2020 The Knative Authors
