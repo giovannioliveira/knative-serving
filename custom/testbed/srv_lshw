@@ -1,0 +1,682 @@
+    description: Computer
+    product: HVM domU
+    vendor: Xen
+    version: 4.7.5-2.12
+    serial: 01a8141d-fd72-c503-8b45-d951ab43c2b7
+    width: 64 bits
+    capabilities: smbios-2.4 dmi-2.4 smp vsyscall32
+    configuration: boot=normal uuid=1d14a801-72fd-03c5-8b45-d951ab43c2b7
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-firmware
+          description: BIOS
+          vendor: Xen
+          physical id: 0
+          version: 4.7.5-2.12
+          date: 04/24/2018
+          size: 96KiB
+          capabilities: pci edd
+     *-cpu:0
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 401
+          bus info: cpu@0
+          version: 6.47.2
+          slot: CPU 1
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:1
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 402
+          bus info: cpu@1
+          version: 6.47.2
+          slot: CPU 2
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:2
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 403
+          bus info: cpu@2
+          version: 6.47.2
+          slot: CPU 3
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:3
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 404
+          bus info: cpu@3
+          version: 6.47.2
+          slot: CPU 4
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:4
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 405
+          bus info: cpu@4
+          version: 6.47.2
+          slot: CPU 5
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:5
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 406
+          bus info: cpu@5
+          version: 6.47.2
+          slot: CPU 6
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:6
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 407
+          bus info: cpu@6
+          version: 6.47.2
+          slot: CPU 7
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:7
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 408
+          bus info: cpu@7
+          version: 6.47.2
+          slot: CPU 8
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:8
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 409
+          bus info: cpu@8
+          version: 6.47.2
+          slot: CPU 9
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:9
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 40a
+          bus info: cpu@9
+          version: 6.47.2
+          slot: CPU 10
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:10
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 40b
+          bus info: cpu@10
+          version: 6.47.2
+          slot: CPU 11
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:11
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 40c
+          bus info: cpu@11
+          version: 6.47.2
+          slot: CPU 12
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:12
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 40d
+          bus info: cpu@12
+          version: 6.47.2
+          slot: CPU 13
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:13
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 40e
+          bus info: cpu@13
+          version: 6.47.2
+          slot: CPU 14
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:14
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 40f
+          bus info: cpu@14
+          version: 6.47.2
+          slot: CPU 15
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:15
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 410
+          bus info: cpu@15
+          version: 6.47.2
+          slot: CPU 16
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:16
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 411
+          bus info: cpu@16
+          version: 6.47.2
+          slot: CPU 17
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:17
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 412
+          bus info: cpu@17
+          version: 6.47.2
+          slot: CPU 18
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:18
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 413
+          bus info: cpu@18
+          version: 6.47.2
+          slot: CPU 19
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:19
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 414
+          bus info: cpu@19
+          version: 6.47.2
+          slot: CPU 20
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:20
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 415
+          bus info: cpu@20
+          version: 6.47.2
+          slot: CPU 21
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:21
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 416
+          bus info: cpu@21
+          version: 6.47.2
+          slot: CPU 22
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:22
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 417
+          bus info: cpu@22
+          version: 6.47.2
+          slot: CPU 23
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:23
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 418
+          bus info: cpu@23
+          version: 6.47.2
+          slot: CPU 24
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:24
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 419
+          bus info: cpu@24
+          version: 6.47.2
+          slot: CPU 25
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:25
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 41a
+          bus info: cpu@25
+          version: 6.47.2
+          slot: CPU 26
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:26
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 41b
+          bus info: cpu@26
+          version: 6.47.2
+          slot: CPU 27
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:27
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 41c
+          bus info: cpu@27
+          version: 6.47.2
+          slot: CPU 28
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:28
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 41d
+          bus info: cpu@28
+          version: 6.47.2
+          slot: CPU 29
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:29
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 41e
+          bus info: cpu@29
+          version: 6.47.2
+          slot: CPU 30
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:30
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 41f
+          bus info: cpu@30
+          version: 6.47.2
+          slot: CPU 31
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-cpu:31
+          description: CPU
+          product: Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+          vendor: Intel Corp.
+          physical id: 420
+          bus info: cpu@31
+          version: 6.47.2
+          slot: CPU 32
+          size: 2397MHz
+          capacity: 2397MHz
+          width: 64 bits
+          capabilities: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall nx pdpe1gb rdtscp x86-64 constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+          configuration: microcode=55
+     *-memory
+          description: System Memory
+          physical id: 1000
+          size: 127GiB
+          capabilities: ecc
+          configuration: errordetection=multi-bit-ecc
+        *-bank:0
+             description: DIMM RAM
+             physical id: 0
+             slot: DIMM 0
+             size: 16GiB
+             width: 64 bits
+        *-bank:1
+             description: DIMM RAM
+             physical id: 1
+             slot: DIMM 1
+             size: 16GiB
+             width: 64 bits
+        *-bank:2
+             description: DIMM RAM
+             physical id: 2
+             slot: DIMM 2
+             size: 16GiB
+             width: 64 bits
+        *-bank:3
+             description: DIMM RAM
+             physical id: 3
+             slot: DIMM 3
+             size: 16GiB
+             width: 64 bits
+        *-bank:4
+             description: DIMM RAM
+             physical id: 4
+             slot: DIMM 4
+             size: 16GiB
+             width: 64 bits
+        *-bank:5
+             description: DIMM RAM
+             physical id: 5
+             slot: DIMM 5
+             size: 16GiB
+             width: 64 bits
+        *-bank:6
+             description: DIMM RAM
+             physical id: 6
+             slot: DIMM 6
+             size: 16GiB
+             width: 64 bits
+        *-bank:7
+             description: DIMM RAM
+             physical id: 7
+             slot: DIMM 7
+             size: 15GiB
+             width: 64 bits
+     *-pci
+          description: Host bridge
+          product: 440FX - 82441FX PMC [Natoma]
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 02
+          width: 32 bits
+          clock: 33MHz
+        *-isa
+             description: ISA bridge
+             product: 82371SB PIIX3 ISA [Natoma/Triton II]
+             vendor: Intel Corporation
+             physical id: 1
+             bus info: pci@0000:00:01.0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master
+             configuration: latency=0
+           *-pnp00:00
+                product: PnP device PNP0c02
+                physical id: 0
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:01
+                product: PnP device PNP0c02
+                physical id: 1
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:02
+                product: PnP device PNP0b00
+                physical id: 2
+                capabilities: pnp
+                configuration: driver=rtc_cmos
+           *-pnp00:03
+                product: PnP device PNP0f13
+                physical id: 3
+                capabilities: pnp
+                configuration: driver=i8042 aux
+           *-pnp00:04
+                product: PnP device PNP0303
+                physical id: 4
+                capabilities: pnp
+                configuration: driver=i8042 kbd
+           *-pnp00:05
+                product: PnP device PNP0700
+                physical id: 5
+                capabilities: pnp
+           *-pnp00:06
+                product: PnP device PNP0501
+                physical id: 6
+                capabilities: pnp
+                configuration: driver=serial
+           *-pnp00:07
+                product: PnP device PNP0400
+                physical id: 7
+                capabilities: pnp
+                configuration: driver=parport_pc
+           *-pnp00:08
+                product: PnP device PNP0c02
+                physical id: 8
+                capabilities: pnp
+                configuration: driver=system
+        *-ide
+             description: IDE interface
+             product: 82371SB PIIX3 IDE [Natoma/Triton II]
+             vendor: Intel Corporation
+             physical id: 1.1
+             bus info: pci@0000:00:01.1
+             logical name: scsi1
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: ide isa_compat_mode bus_master emulated
+             configuration: driver=ata_piix latency=64
+             resources: irq:0 ioport:1f0(size=8) ioport:3f6 ioport:170(size=8) ioport:376 ioport:c220(size=16)
+           *-cdrom
+                description: SCSI CD-ROM
+                product: QEMU DVD-ROM
+                vendor: QEMU
+                physical id: 0.1.0
+                bus info: scsi@1:0.1.0
+                logical name: /dev/cdrom
+                logical name: /dev/sr0
+                version: 0.10
+                capabilities: removable audio
+                configuration: ansiversion=5 status=nodisc
+        *-usb
+             description: USB controller
+             product: 82371SB PIIX3 USB [Natoma/Triton II]
+             vendor: Intel Corporation
+             physical id: 1.2
+             bus info: pci@0000:00:01.2
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: uhci bus_master
+             configuration: driver=uhci_hcd latency=64
+             resources: irq:23 ioport:c200(size=32)
+           *-usbhost
+                product: UHCI Host Controller
+                vendor: Linux 5.15.0-56-generic uhci_hcd
+                physical id: 1
+                bus info: usb@1
+                logical name: usb1
+                version: 5.15
+                capabilities: usb-1.10
+                configuration: driver=hub slots=2 speed=12Mbit/s
+              *-usb
+                   description: Mouse
+                   product: QEMU 0.10.2 QEMU USB Tablet
+                   vendor: QEMU 0.10.2
+                   physical id: 2
+                   bus info: usb@1:2
+                   logical name: input5
+                   logical name: /dev/input/event3
+                   logical name: /dev/input/mouse0
+                   version: 0.00
+                   serial: 1
+                   capabilities: usb-1.00 usb
+                   configuration: driver=usbhid maxpower=100mA speed=12Mbit/s
+        *-bridge UNCLAIMED
+             description: Bridge
+             product: 82371AB/EB/MB PIIX4 ACPI
+             vendor: Intel Corporation
+             physical id: 1.3
+             bus info: pci@0000:00:01.3
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: bridge bus_master
+             configuration: latency=0
+        *-display
+             description: VGA compatible controller
+             product: GD 5446
+             vendor: Cirrus Logic
+             physical id: 2
+             bus info: pci@0000:00:02.0
+             logical name: /dev/fb0
+             version: 00
+             width: 32 bits
+             clock: 33MHz
+             capabilities: vga_controller bus_master rom fb
+             configuration: depth=16 driver=cirrus latency=0 resolution=1024,768
+             resources: irq:24 memory:f0000000-f1ffffff memory:f3000000-f3000fff memory:c0000-dffff
+        *-scsi
+             description: SCSI storage controller
+             product: Xen Platform Device
+             vendor: XenSource, Inc.
+             physical id: 3
+             bus info: pci@0000:00:03.0
+             version: 01
+             width: 32 bits
+             clock: 33MHz
+             capabilities: scsi bus_master
+             configuration: driver=xen-platform-pci latency=0
+             resources: irq:30 ioport:c000(size=256) memory:f2000000-f2ffffff
+  *-input:0
+       product: Power Button
+       physical id: 1
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-input:1
+       product: Sleep Button
+       physical id: 2
+       logical name: input1
+       logical name: /dev/input/event1
+       capabilities: platform
+  *-input:2
+       product: AT Translated Set 2 keyboard
+       physical id: 3
+       logical name: input2
+       logical name: /dev/input/event2
+       logical name: input2::capslock
+       logical name: input2::numlock
+       logical name: input2::scrolllock
+       capabilities: i8042
+  *-input:3
+       product: ImExPS/2 Generic Explorer Mouse
+       physical id: 4
+       logical name: input4
+       logical name: /dev/input/event4
+       logical name: /dev/input/mouse1
+       capabilities: i8042
+  *-network
+       description: Ethernet interface
+       physical id: 5
+       logical name: eth0
+       serial: 02:00:44:3a:00:04
+       capabilities: ethernet physical
+       configuration: broadcast=yes driver=vif driverversion=5.15.0-56-generic ip=10.4.0.143 link=yes multicast=yes

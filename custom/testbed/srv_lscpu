@@ -1,0 +1,42 @@
+Architecture:            x86_64
+  CPU op-mode(s):        32-bit, 64-bit
+  Address sizes:         44 bits physical, 48 bits virtual
+  Byte Order:            Little Endian
+CPU(s):                  32
+  On-line CPU(s) list:   0-31
+Vendor ID:               GenuineIntel
+  Model name:            Intel(R) Xeon(R) CPU E7- 2870  @ 2.40GHz
+    CPU family:          6
+    Model:               47
+    Thread(s) per core:  1
+    Core(s) per socket:  1
+    Socket(s):           32
+    Stepping:            2
+    BogoMIPS:            4793.90
+    Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush acpi mmx fxsr sse sse2 syscall 
+                         nx pdpe1gb rdtscp lm constant_tsc rep_good nopl cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_
+                         2 x2apic popcnt aes hypervisor lahf_lm cpuid_fault pti
+Virtualization features: 
+  Hypervisor vendor:     Microsoft
+  Virtualization type:   full
+Caches (sum of all):     
+  L1d:                   1 MiB (32 instances)
+  L1i:                   1 MiB (32 instances)
+  L2:                    8 MiB (32 instances)
+  L3:                    960 MiB (32 instances)
+NUMA:                    
+  NUMA node(s):          1
+  NUMA node0 CPU(s):     0-31
+Vulnerabilities:         
+  Itlb multihit:         KVM: Mitigation: VMX unsupported
+  L1tf:                  Mitigation; PTE Inversion
+  Mds:                   Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+  Meltdown:              Mitigation; PTI
+  Mmio stale data:       Unknown: No mitigations
+  Retbleed:              Not affected
+  Spec store bypass:     Vulnerable
+  Spectre v1:            Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:            Mitigation; Retpolines, STIBP disabled, RSB filling, PBRSB-eIBRS Not affected
+  Srbds:                 Not affected
+  Tsx async abort:       Not affected
+
