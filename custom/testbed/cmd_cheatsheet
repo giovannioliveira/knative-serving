@@ -1,0 +1,3 @@
+[create func]: $ kn service create $FID --image docker.io/giovanniapsoliveira/simtask --port 8080
+[test func]: $ export TB=1000000000 TS=1000000000 FID="test2" RID="$(uuidgen)" CLID="$HOSTNAME" SVC_URL="http://200.144.244.220:10080"; curl -v --header "Host: $FID.default.knative.dev" "$SVC_URL/?cl=$CLID&id=$RID&tb=$TB&ts=$TS&t0=$(date +%s%N)"
+[redeploy component]: $ ko apply -f config/core/deployments/$COMPONENT.yaml
