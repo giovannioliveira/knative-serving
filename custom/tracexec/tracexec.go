@@ -24,11 +24,12 @@ func getEnv(key, fallback string) string {
 }
 
 var TraceFilename = getEnv("TRACE", "invokes.csv")
-var DutyCycle, e1 = strconv.ParseFloat(getEnv("DUTY", ".1"), 64)
+var DutyCycle, e1 = strconv.ParseFloat(getEnv("DUTY", ".25"), 64)
 var IdleCycle = 1 - DutyCycle
 var BaseURL = getEnv("URL", "http://10.4.0.143:10080/")
 var BeginAt, e2 = time.Parse(time.RFC3339, getEnv("BEGIN",
 	time.Now().Truncate(time.Minute).Add(2*time.Minute).Format(time.RFC3339)))
+var DbgFunc = getEnv("DBGFUNC", "")
 var OutDir = getEnv("OUTDIR", "logs")
 var _baseLogFilename = BeginAt.Format(time.RFC3339)
 var OutFilename = OutDir + "/" + _baseLogFilename + ".out"
@@ -106,7 +107,11 @@ func main() {
 		}
 		req.Header.Add("Content-Type", "text/plain")
 		req.Header.Add("Accept", "*/*")
-		req.Host = "simtask-" + fid + ".default.knative.dev"
+		if len(DbgFunc) == 0 {
+			req.Host = "simtask-" + fid + ".default.knative.dev"
+		} else {
+			req.Host = DbgFunc + ".default.knative.dev"
+		}
 
 		query := map[string]string{}
 		data[i] = query
