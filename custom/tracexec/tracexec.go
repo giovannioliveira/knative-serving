@@ -24,7 +24,7 @@ func getEnv(key, fallback string) string {
 }
 
 var TraceFilename = getEnv("TRACE", "invokes.csv")
-var DutyCycle, e1 = strconv.ParseFloat(getEnv("DUTY", ".25"), 64)
+var DutyCycle, e1 = strconv.ParseFloat(getEnv("DUTY", "0.25"), 64)
 var IdleCycle = 1 - DutyCycle
 var BaseURL = getEnv("URL", "http://10.4.0.143:10080/")
 var BeginAt, e2 = time.Parse(time.RFC3339, getEnv("BEGIN",
@@ -99,8 +99,9 @@ func main() {
 		t0, _ := strconv.ParseFloat(row[1], 64)
 		fid := row[2]
 		dur, _ := strconv.ParseFloat(row[3], 64)
-		tb := uint64(dur * 10e9 * DutyCycle)
-		ts := uint64(dur * 10e9 * IdleCycle)
+		duration := dur * 1000000000
+		tb := uint64(DutyCycle * duration)
+		ts := uint64(duration) - tb
 		req, err := http.NewRequest("GET", BaseURL, nil)
 		if err != nil {
 			log.Fatal(err)
