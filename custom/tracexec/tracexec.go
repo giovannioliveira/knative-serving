@@ -13,30 +13,76 @@ import (
 	"time"
 )
 
-const inputFile = "invokes.csv"
-const dutyCycle = .3
-const idleCycle = 1 - dutyCycle
-const baseURL = "http://192.168.56.9:80/"
-const clientId = "7"
+const Version = "0-1-0c"
+const ClientId = "tracexec-" + Version
 
-var beginAt = time.Date(2024, 2, 23, 9, 30, 0, 0, time.Local)
-
-func saveSuccess(wg *sync.WaitGroup, params map[string]string, response map[string]any) {
-	defer wg.Done()
-	for k, v := range params {
-		response["_"+k] = v
+func getEnv(key, fallback string) string {
+	if value, ok := os.LookupEnv(key); ok {
+		return value
 	}
-
-	fmt.Println("[success]: ", response)
+	return fallback
 }
 
-func saveError(err error) {
-	fmt.Println(fmt.Errorf("[error]: %w", err).Error())
+var TraceFilename = getEnv("TRACE", "invokes.csv")
+var DutyCycle, e1 = strconv.ParseFloat(getEnv("DUTY", ".1"), 64)
+var IdleCycle = 1 - DutyCycle
+var BaseURL = getEnv("URL", "http://10.4.0.143:10080/")
+var BeginAt, e2 = time.Parse(time.RFC3339, getEnv("BEGIN",
+	time.Now().Truncate(time.Minute).Add(2*time.Minute).Format(time.RFC3339)))
+var OutDir = getEnv("OUTDIR", "logs")
+var _baseLogFilename = BeginAt.Format(time.RFC3339)
+var OutFilename = OutDir + "/" + _baseLogFilename + ".out"
+var ErrFilename = OutDir + "/" + _baseLogFilename + ".err"
+var OutFile *os.File = nil
+var ErrFile *os.File = nil
+var err error = nil
+
+func saveSuccess(wg *sync.WaitGroup, message string) {
+	defer wg.Done()
+	_, err = OutFile.WriteString("[success]: " + message + "\n")
+	if err != nil {
+		saveError(err)
+	}
+}
+
+func saveError(errArg error) {
+	if ErrFile != nil {
+		_, err = ErrFile.WriteString("[error]: " + errArg.Error() + "\n")
+		if err != nil {
+			fmt.Println("[error] :" + err.Error())
+		}
+	} else {
+		fmt.Println("[error] :" + err.Error())
+	}
 }
 
 func main() {
+	fmt.Println("Tracexec Simulator")
+	fmt.Println("---")
+	fmt.Println("VERSION: ", Version)
+	fmt.Println("BASE_URL: ", BaseURL)
+	fmt.Println("TRACE: ", TraceFilename)
+	fmt.Println("DUTY: ", DutyCycle)
+	fmt.Println("BEGIN: ", BeginAt.Format(time.RFC3339))
+	fmt.Println("OUT: ", OutFilename)
+	fmt.Println("ERR: ", ErrFilename)
+	fmt.Println("---")
+
+	ErrFile, err = os.OpenFile(ErrFilename, os.O_CREATE|os.O_RDWR, 0664)
+	if err != nil {
+		saveError(err)
+		return
+	}
+	OutFile, err = os.OpenFile(OutFilename, os.O_CREATE|os.O_RDWR, 0664)
+	if err != nil || e1 != nil || e2 != nil {
+		log.Fatal(err)
+	}
+	if BeginAt.Unix() < time.Now().Unix() {
+		log.Fatal(fmt.Errorf("begin at past time not allowed"))
+	}
+
 	wg := sync.WaitGroup{}
-	file, err := os.ReadFile(inputFile)
+	file, err := os.ReadFile(TraceFilename)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -52,45 +98,44 @@ func main() {
 		t0, _ := strconv.ParseFloat(row[1], 64)
 		fid := row[2]
 		dur, _ := strconv.ParseFloat(row[3], 64)
-		tb := uint64(dur * 10e9 * dutyCycle)
-		ts := uint64(dur * 10e9 * idleCycle)
-		req, err := http.NewRequest("GET", baseURL, nil)
+		tb := uint64(dur * 10e9 * DutyCycle)
+		ts := uint64(dur * 10e9 * IdleCycle)
+		req, err := http.NewRequest("GET", BaseURL, nil)
 		if err != nil {
 			log.Fatal(err)
 		}
 		req.Header.Add("Content-Type", "text/plain")
 		req.Header.Add("Accept", "*/*")
-		req.Host = "temul-" + fid + ".default.knative.dev"
+		req.Host = "simtask-" + fid + ".default.knative.dev"
 
 		query := map[string]string{}
 		data[i] = query
-		query["cl"] = clientId
+		query["cl"] = ClientId
+		query["fid"] = fid
 		query["id"] = rid
 		query["ts"] = strconv.FormatUint(ts, 10)
 		query["tb"] = strconv.FormatUint(tb, 10)
 		query["t0"] = strconv.FormatUint(uint64(t0*10e9), 10)
-		query["fid"] = fid
 		q := req.URL.Query()
 		for k, v := range query {
 			q.Add(k, v)
 		}
+		req.URL.RawQuery = q.Encode()
 		requests[i] = req
 	}
+	fmt.Println("Requests pre generated. Start scheduled for " +
+		BeginAt.Format(time.RFC3339))
+	fmt.Println("---")
 	wg.Add(len(requests))
-	fmt.Println("Request created.")
+
 	for i := 0; i < len(requests); i++ {
 		row := data[i]
 		t0, _ := strconv.ParseUint(row["t0"], 10, 64)
-		dt := int64(-1)
-		for dt = time.Now().Sub(beginAt).Nanoseconds() - int64(t0); dt < 0; dt = time.Now().Sub(beginAt).Nanoseconds() - int64(t0) {
+		var dt int64
+		for dt = time.Now().Sub(BeginAt).Nanoseconds() - int64(t0); dt < 0; dt = time.Now().Sub(BeginAt).Nanoseconds() - int64(t0) {
 		}
 		go func(rid int) {
-			fmt.Println(rid, time.Now().Sub(beginAt).Nanoseconds(), dt)
 			req := requests[rid]
-			row := data[rid]
-			row["dt0"] = strconv.FormatInt(dt, 10)
-			req.URL.Query().Add("dt0", row["dt0"])
-			req.URL.RawQuery = req.URL.Query().Encode()
 			client := &http.Client{}
 			resp, err := client.Do(req)
 			if err != nil || resp.StatusCode != 200 {
@@ -108,14 +153,24 @@ func main() {
 					wg.Done()
 					return
 				}
-				respMap := map[string]any{}
-				err = json.Unmarshal(ret, &respMap)
+				retMap := map[string]string{}
+				err = json.Unmarshal(ret, &retMap)
 				if err != nil {
 					saveError(err)
 					wg.Done()
 					return
 				}
-				go saveSuccess(&wg, query, respMap)
+				for k, v := range query {
+					retMap[k] = v
+				}
+				retMap["Tf"] = strconv.FormatInt(time.Now().UnixNano(), 10)
+				retMapBuf, err := json.Marshal(retMap)
+				if err != nil {
+					saveError(err)
+					wg.Done()
+					return
+				}
+				go saveSuccess(&wg, string(retMapBuf))
 			}(row, resp)
 		}(i)
 	}
