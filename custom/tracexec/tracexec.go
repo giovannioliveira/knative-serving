@@ -66,7 +66,7 @@ func saveError(errArg error, exit bool, wg *sync.WaitGroup) {
 	if wg != nil {
 		defer wg.Done()
 	}
-	var message map[string]any
+	message := map[string]any{}
 	message["error"] = true
 	message["arg"] = errArg.Error()
 	message["exit"] = exit
