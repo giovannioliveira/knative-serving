@@ -4,14 +4,18 @@ nodes:
 - role: control-plane
   image: kindest/node:v1.27.1
   extraMounts:
-  - hostPath: /home/shared
+  - hostPath: /home/giovanni/shared
     containerPath: /home/shared
   extraPortMappings:
   - containerPort: 31080
-    hostPort: 80
+    hostPort: 10080
   - containerPort: 31443
     hostPort: 443
   - containerPort: 34120
     hostPort: 4120
   - containerPort: 34121
-    hostPort: 4121
+    hostPort: 10443
+  - containerPort: 31123
+    hostPort: 10123
+  - containerPort: 31124
+    hostPort: 10124
