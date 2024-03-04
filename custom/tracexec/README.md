@@ -1,4 +1,5 @@
 # Tracexec
+Execute HTTP requests based on a provided tracefile with high precision [O(uS)].
 ## Executing
 The application source code is placed at [`tracexec.go`](tracexec.go). After compiled, it generates a `tracexec` executable binary.
 You must run the script `run.ssh`, which can be edited to meet the desired arguments given as inline environmental variables. This program requires superuser permission to prioritize its process with `nice` and increase the benchmark's precision. 
