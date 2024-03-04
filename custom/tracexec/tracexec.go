@@ -360,6 +360,7 @@ func main() {
 		for ExperimentDurationNs() < t0 {
 		}
 		t0c := ExperimentDurationNs()
+		// TODO document
 		row["t0c"] = strconv.FormatInt(t0c, 10)
 		row["dt0"] = strconv.FormatInt(t0c-t0, 10)
 		go func(idx int, t0 int64) {
@@ -397,6 +398,7 @@ func main() {
 				for k, v := range query {
 					retMap[k] = v
 				}
+				// TODO document
 				retMap["tfc"] = fmt.Sprintf("%d", ExperimentDurationNs())
 				d, _ := strconv.ParseInt(retMap["dur"], 10, 64)
 				dtd, _ := strconv.ParseInt(retMap["rdt"], 10, 64)
