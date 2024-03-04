@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-const Version = "0.1.0b"
+const Version = "0.1.1"
 
 func Handle(ctx context.Context, resp http.ResponseWriter, req *http.Request) {
 	rt0 := time.Now()
@@ -25,9 +25,9 @@ func Handle(ctx context.Context, resp http.ResponseWriter, req *http.Request) {
 		return
 	}
 	var tb int64 = 0
-	var it uint64 = 0
+	var it int64 = 0
 	if params.Has("it") {
-		it, err = strconv.ParseUint(params.Get("it"), 10, 64)
+		it, err = strconv.ParseInt(params.Get("it"), 10, 64)
 		if err != nil {
 			http.Error(resp, "bad 'it' parameter", 400)
 			return
@@ -44,7 +44,7 @@ func Handle(ctx context.Context, resp http.ResponseWriter, req *http.Request) {
 		time.Sleep(time.Duration(ts))
 	}
 	tb0 := time.Now()
-	rit := uint64(0)
+	rit := int64(0)
 	for ; rit < it || time.Now().Sub(tb0).Nanoseconds() < tb; rit++ {
 	}
 	rtb := time.Now().Sub(tb0)
@@ -55,11 +55,10 @@ func Handle(ctx context.Context, resp http.ResponseWriter, req *http.Request) {
 	res := map[string]string{}
 	res["rt0"] = strconv.FormatInt(rt0.UnixNano(), 10)
 	res["rtb"] = strconv.FormatInt(rtb.Nanoseconds(), 10)
-	res["rit"] = strconv.FormatUint(rit, 10)
+	res["rit"] = strconv.FormatInt(rit, 10)
 	res["rts"] = strconv.FormatInt(rts.Nanoseconds(), 10)
 	res["rdt"] = strconv.FormatInt(rdt.Nanoseconds(), 10)
 	res["rtf"] = strconv.FormatInt(rtf.UnixNano(), 10)
-	// TODO compute delays in response
 
 	r, err := json.Marshal(res)
 	if err != nil {
