@@ -1,0 +1,2 @@
+#!/bin/sh
+nohup sudo DBGFUNC="test3" DUTY="1.0" nice -n -19 ./tracexec
