@@ -1,4 +1,5 @@
 # Simtask
+Simulate a task with parameters for idle and busy wait during its execution.
 ## Request
 The application source code is placed at [`handle.go`](handle.go). After deployed, a function is called using a HTTP request of the form:
 ```
