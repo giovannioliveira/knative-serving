@@ -42,6 +42,6 @@ Before saving the request log, which contains data from request parameters and r
 | NAME | TYPE | DESCRIPTION                                            |
 |------|------|--------------------------------------------------------|
 | dt0  | int  | ScheduledReqInit - MeasuredReqInit timestamp in UnixNs |
-| dtd  | int  | TargetDuration - MeasuredDuration                      |
+| dtd  | int  | TargetDuration - MeasuredDuration in nS                |
 | t0c  | int  | MeasuredReqInit timestamp in UnixNs                    |
 | tfc  | int  | MeasuredReqEnd timestamp in UnixNs                     |
