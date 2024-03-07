@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-const Version = "0-1-2"
+const Version = "0-1-3"
 const ClientId = "tracexec-" + Version
 
 const STonS = 1000000000
@@ -31,6 +31,8 @@ func getEnv(key, fallback string) string {
 }
 
 var _TraceFilename = getEnv("TRACE", "invokes.csv")
+
+// https://ieeexplore.ieee.org/abstract/document/1291351
 var DutyCycle, _e1 = strconv.ParseFloat(getEnv("DUTY", "0.25"), 64)
 var BaseURL = getEnv("URL", "http://200.144.244.220:10080/")
 var BeginAt, _e2 = time.Parse(time.RFC3339, getEnv("BEGIN",
@@ -335,7 +337,7 @@ func main() {
 		req.Header.Add("Content-Type", "text/plain")
 		req.Header.Add("Accept", "*/*")
 		if len(DbgFunc) == 0 {
-			req.Host = "tracexec-" + fid + ".default.knative.dev"
+			req.Host = "simtask-1-" + fid + ".default.knative.dev"
 		} else {
 			req.Host = DbgFunc + ".default.knative.dev"
 		}
