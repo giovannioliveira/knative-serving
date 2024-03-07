@@ -312,7 +312,7 @@ func main() {
 
 	ctx := context.Background()
 	requests := map[int]*http.Request{}
-	data := map[int]map[string]string{}
+	data := map[int]map[string]any{}
 	lines := strings.Split(string(_TraceFile), "\n")
 	if FinalRecordID == -1 {
 		FinalRecordID = int64(len(lines) - 2)
@@ -344,7 +344,7 @@ func main() {
 		if _InitialOffset == 0 {
 			_InitialOffset = int64(t0 * STonS)
 		}
-		data[i] = map[string]string{"cl": ClientId, "fid": fid, "id": row[0],
+		data[i] = map[string]any{"cl": ClientId, "fid": fid, "id": row[0],
 			"ts": strconv.FormatInt(ts, 10), "tb": strconv.FormatInt(tb, 10),
 			"t0":  strconv.FormatInt(int64(t0*STonS), 10),
 			"dur": strconv.FormatInt(duration, 10)}
@@ -358,7 +358,7 @@ func main() {
 	lenReq := len(requests)
 	for i := 0; i < lenReq; i++ {
 		row := data[i]
-		t0, _ := strconv.ParseInt(row["t0"], 10, 64)
+		t0, _ := strconv.ParseInt(row["t0"].(string), 10, 64)
 		for ExperimentDurationNs() < t0 {
 		}
 		t0c := ExperimentDurationNs()
@@ -369,7 +369,7 @@ func main() {
 			req := requests[idx]
 			q := req.URL.Query()
 			for k, v := range data[idx] {
-				q.Add(k, v)
+				q.Add(k, v.(string))
 			}
 			req.URL.RawQuery = q.Encode()
 			resp, err := client.Do(req)
@@ -383,7 +383,7 @@ func main() {
 				go saveError(err, false, &wg)
 				return
 			}
-			go func(query map[string]string, resp *http.Response) {
+			go func(query map[string]any, resp *http.Response) {
 				ret, err := io.ReadAll(resp.Body)
 				if err != nil {
 					go saveError(err, false, &wg)
@@ -391,7 +391,7 @@ func main() {
 				}
 				_ = resp.Body.Close()
 
-				retMap := map[string]string{}
+				retMap := map[string]any{}
 				err = json.Unmarshal(ret, &retMap)
 				if err != nil {
 					go saveError(err, false, &wg)
@@ -402,8 +402,8 @@ func main() {
 				}
 				// TODO document
 				retMap["tfc"] = fmt.Sprintf("%d", ExperimentDurationNs())
-				d, _ := strconv.ParseInt(retMap["dur"], 10, 64)
-				dtd, _ := strconv.ParseInt(retMap["rdt"], 10, 64)
+				d, _ := strconv.ParseInt(retMap["dur"].(string), 10, 64)
+				dtd, _ := strconv.ParseInt(retMap["rdt"].(string), 10, 64)
 				retMap["dtd"] = strconv.FormatInt(dtd-d, 10)
 
 				retMapBuf, err := json.Marshal(retMap)
